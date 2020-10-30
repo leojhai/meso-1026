@@ -2910,7 +2910,7 @@
 
 <body>
 	<div id="index">
-		<img id="ID1599241117474_1" src="../imags/ID1599241117474_1.png" srcset="../meso-1026/imags/ID1599241117474_1.png 1x, ../meso-1026/imags/ID1599241117474_1@2x.png 2x">
+		<img id="ID1599241117474_1" src="./imags/ID1599241117474_1.png" srcset="./imags/ID1599241117474_1.png 1x, ./imags/ID1599241117474_1@2x.png 2x">
 		<div id="ID109">
 			<span>高科大進修部109級機械系學會</span>
 		</div>
