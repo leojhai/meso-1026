@@ -1,17 +1,10 @@
 <?php
     session_start();
     $passchk=$_POST["password"];
-    $userid=$_POST["username"];     
-    
-    $servername = "localhost";
-    $username = "root";
-    $password = "leojhai817";
-    $dbname = "nkustmeblog";
+    $userid=$_POST["username"];
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    require "includes/dbconfig.php";
+    
  // 以下建立SQL查詢指令
  // $sql = "SELECT * FROM news order by id desc";
  //使用 insert into  

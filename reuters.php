@@ -44,57 +44,50 @@ if ($user_type == NULL) {
           </div>
           <div class='card-body' align=center>
             <table class='table table-striped table-hover'>
+
+              <?php
+              require "includes/dbconfig.php";
+
+              $sql = "SELECT * FROM news order by id desc";
+              $result = $conn->query($sql);
+              echo "<form method=POST action=reuters_post.php>";
+              echo "訊息：<input type=text name=massage size=40>";
+              echo "<input type=submit value=張貼>";
+              echo "</form>";
+              echo "<hr>";
+              ?>
+
               <thead class='thead-dark'>
                 <tr>
                   <th>內容</th>
                   <th>發佈日期</th>
+                  <th>action</th>
                 </tr>
               </thead>
+
               <tbody>
-                <tr>
-                  <td>
-                    <a href="https://sites.google.com/mail.fcu.edu.tw/2021coding101/">給非資電同學的程式設計創意比賽來囉~~</a>
-                  </td>
-                  <td>
-                    2020年10月14日 14:17
-                  </td>
-                </tr>
+                <?php
+                if ($result->num_rows > 0) {
+                  
 
-                <tr>
-                  <td>
-                    <a href="https://aifinpitchtw.com/competition#/index">2020AI金融科技創新創意競賽，報名啦，還等什麼？！</a>
-                  </td>
-                  <td>
-                    2020年10月14日 14:17
-                  </td>
-                </tr>
+                  while ($row = $result->fetch_assoc()) {
+                    $id = $row["id"];
+                    echo "<td>" . $row["message"] . "</td>" . "<td>" . $row["postdate"] . "</td>";
+                    if ($user_type != NULL) {
+                      echo "<td>";
+                      echo "<a class='btn btn-info btn-xs' href='reuters_edit.php?id=$id'>Edit</a>";
+                      echo " ";
+                      echo "<a class='btn btn-secondary btn-xs' href='reuters_delete.php?id=$id'>Delete</a>";
+                      echo "</td>";
+                    }
+                    echo "</tr>";
+                  }
+                } else {
+                  echo "0 results";
+                }
+                $conn->close();
+                ?>
 
-                <tr>
-                  <td>
-                    <a href="http://cgeonline.nkust.edu.tw">高科每日SEE，歡迎各位同學有空也去逛逛喔</a>
-                  </td>
-                  <td>
-                    2020年10月3日 00:07
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <a href="/tvshow/1/">選修「商務網站設計」的同學，別忘了要前往預習「WordPress數位課程」</a>
-                  </td>
-                  <td>
-                    2020年10月3日 00:06
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <a href="/tvlist">新增了許多的教材影片，歡迎同學們前往左上角的「教學影片」選單收看</a>
-                  </td>
-                  <td>
-                    2020年10月2日 23:58
-                  </td>
-                </tr>
               </tbody>
             </table>
             <p style="text-align:left;"><?php require "footer.php"; ?></p>
@@ -105,7 +98,7 @@ if ($user_type == NULL) {
         </div>
       </div>
     </div>
-    
+
     <hr>
     <em>Copyright 2016 <a href='http://nkust-meso.com'>http://mkust-meso.com</a>. All rights reserved.</em>
   </div>
