@@ -75,7 +75,7 @@ require "includes/dbconfig.php";
             <?php
             echo "<div class='row'>";
 
-            $sql = "SELECT * FROM mem";
+            $sql = "SELECT * FROM cadre";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) { //檢查記錄的數量，看看是否有資料
                 while ($row = $result->fetch_assoc()) {

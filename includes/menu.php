@@ -16,7 +16,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="eventschedule.php">活動行事曆</a>
-              <a class="dropdown-item" href="#">活動問卷統計</a>
+              <a class="dropdown-item" href="questionnaire.php">活動問卷統計</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -25,7 +25,6 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="introduction.php">系學會簡介</a>
-              <a class="dropdown-item" href="locsation.php">系所位置</a>
               <a class="dropdown-item" href="member.php">系所成員</a>
             </div>
           </li>

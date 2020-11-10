@@ -4,6 +4,9 @@ $user_type = $_SESSION["user_type"];
 if ($user_type == NULL) {
   header("Location: login.php");;
 }
+
+require "includes/dbconfig.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -44,57 +47,42 @@ if ($user_type == NULL) {
           </div>
           <div class='card-body' align=center>
             <table class='table table-striped table-hover'>
+
+              <?php
+              $sql = "SELECT * FROM post order by id desc";
+              $result = $conn->query($sql);
+              ?>
+
               <thead class='thead-dark'>
                 <tr>
                   <th>內容</th>
                   <th>發佈日期</th>
                 </tr>
               </thead>
+
               <tbody>
                 <tr>
                   <td>
-                    <a href="https://sites.google.com/mail.fcu.edu.tw/2021coding101/">給非資電同學的程式設計創意比賽來囉~~</a>
+                    <img src="./imags/announcement.png" width="35" height="22">
+                    <a href="https://ceed.nkust.edu.tw/p/406-1014-37399,r11.php">109學年度第1學期校務系統學生個人課表資訊開放查詢</a>
                   </td>
                   <td>
-                    2020年10月14日 14:17
+                    2020-11-07
                   </td>
                 </tr>
+                <?php
+                if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                    $id = $row["id"];
+                    echo "<td>" . "<a href=" . $row["link"] . ">" . $row["message"] . "</a>" . "</td>" . "<td>" . $row["postdate"] . "</td>";
 
-                <tr>
-                  <td>
-                    <a href="https://aifinpitchtw.com/competition#/index">2020AI金融科技創新創意競賽，報名啦，還等什麼？！</a>
-                  </td>
-                  <td>
-                    2020年10月14日 14:17
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <a href="http://cgeonline.nkust.edu.tw">高科每日SEE，歡迎各位同學有空也去逛逛喔</a>
-                  </td>
-                  <td>
-                    2020年10月3日 00:07
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <a href="/tvshow/1/">選修「商務網站設計」的同學，別忘了要前往預習「WordPress數位課程」</a>
-                  </td>
-                  <td>
-                    2020年10月3日 00:06
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <a href="/tvlist">新增了許多的教材影片，歡迎同學們前往左上角的「教學影片」選單收看</a>
-                  </td>
-                  <td>
-                    2020年10月2日 23:58
-                  </td>
-                </tr>
+                    echo "</tr>";
+                  }
+                } else {
+                  echo "0 results";
+                }
+                $conn->close();
+                ?>
               </tbody>
             </table>
             <p style="text-align:left;"><?php require "footer.php"; ?></p>
