@@ -53,16 +53,8 @@ require "includes/dbconfig.php";
                         <li class="nav-item">
                             <a class="nav-link" href="cadre.php">系學會幹部</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                各年級
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">級任導師</a>
-                                <a class="dropdown-item" href="#">班級幹部</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="classmember.php">級任成員</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0" method=POST action='search.php'>

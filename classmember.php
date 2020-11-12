@@ -64,39 +64,76 @@ require "includes/dbconfig.php";
                 </div>
             </nav>
 
-            <?php
-            echo "<div class='row'>";
+            <table class='table table-striped table-hover'>
+                <thead class='thead-dark'>
+                    <tr>
+                        <th>班級</th>
+                        <th>導師</th>
+                        <th>班代</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            進四機一甲
+                        </td>
+                        <td>
+                            蔡明章
+                        </td>
+                        <td>
+                            金珊
+                        </td>
+                    </tr>
 
-            $sql = "SELECT * FROM mem";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) { //檢查記錄的數量，看看是否有資料
-                while ($row = $result->fetch_assoc()) {
-                    $description = $row["description"];
-                    $name = $row["name"];
-                    $photo = $row["photo"];
-                    echo "<div class='col-md-4 col-sm-6 col-xs-12'>";
-                    echo "<div class='card' style='width: 20rem;height:35rem;'>";
-                    echo "<img style='overflow:auto;' src='$photo' width='40' height='320' class='card-img-top'>";
-                    echo "<div class='card-body'>";
-                    echo "<h5 class='card-title'>$name</h5>";
-                    echo "<p style='overflow:auto;' class='card-text'>$description</p>";
-                    echo "<a href='#' class='btn btn-secondary'>加入購物車</a>";
-                    echo "</div></div><hr></div>";
-                }
-            } else {
-                echo "0 results"; // 如果資料表中沒有記錄，要顯示的內容
-            }
-            echo "</div>";
-            ?>
+                    <tr>
+                        <td>
+                            進四機二甲
+                        </td>
+                        <td>
+                            鄭宗杰
+                        </td>
+                        <td>
+                            吳旻晉
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            進四機三甲
+                        </td>
+                        <td>
+                            陳昭先
+                        </td>
+                        <td>
+                            莊釋閔
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            進四機四甲
+                        </td>
+                        <td>
+                            ???
+                        </td>
+                        <td>
+                            ???
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
             <p style="text-align:left;"><?php include "footer.php"; ?></p>
+            <div class='card-footer' align=center>
+                <em>Contact: nkustmeso@nkust.edu.tw</em>
+            </div>
         </div>
-        <div class='card-footer' align=center>
-            <em>Contact: nkustmeso@nkust.edu.tw</em>
-        </div>
+        <hr>
+        <em>Copyright 2016 <a href='http://nkust-meso.com'>http://mkust-meso.com</a>. All rights reserved.</em>
     </div>
 
-    <hr>
-    <em>Copyright 2016 <a href='http://nkust-meso.com'>http://mkust-meso.com</a>. All rights reserved.</em>
+
 </body>
 
 </html>
